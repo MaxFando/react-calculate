@@ -1,6 +1,10 @@
 import React from "react";
 
-const AddProduct = ({ handleSubmit }) => {
+interface IAddProduct {
+  handleSubmit: (e: React.MouseEvent) => void
+}
+
+const AddProduct = ({ handleSubmit }: IAddProduct) => {
   return (
     <form>
       <div className="form-group">

@@ -1,6 +1,12 @@
 import React from "react";
 
-const CurrencyResult = ({ currency }) => {
+type Currency = { RUB: number, EUR: number, USD: number }
+
+interface ICurrencyResult {
+  currency: Currency
+}
+
+const CurrencyResult = ({ currency }: ICurrencyResult) => {
   return (
     <ul className="currency-result list-group">
       <li className="list-group-item rub">RUB {currency.RUB}</li>
