@@ -6,6 +6,7 @@ import CurrencyResult from "./components/currency-result";
 import Calculate from "./components/calculate";
 
 import axios from "axios";
+import uuid from "uuid";
 
 import "./App.css";
 
@@ -29,6 +30,7 @@ function App() {
     }
 
     const data = {
+      id: uuid.v4(),
       title,
       quantity,
       currency,
@@ -46,10 +48,14 @@ function App() {
     setCurrency(response);
   };
 
+  const handleDelete = key => {
+    setProducts(prevState => prevState.filter(item => item.id !== key));
+  };
+
   return (
     <div className="container">
       <AddProduct handleSubmit={handleSubmit} />
-      <ProductList products={products} />
+      <ProductList handleDelete={handleDelete} products={products} />
       <Calculate handleCalculate={handleCalculate} />
       <CurrencyResult currency={currency} />
     </div>

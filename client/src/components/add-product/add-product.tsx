@@ -6,7 +6,7 @@ interface IAddProduct {
 
 const AddProduct = ({ handleSubmit }: IAddProduct) => {
   return (
-    <form>
+    <form >
       <div className="form-group">
         <input
           id="title"
